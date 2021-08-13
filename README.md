@@ -1,2 +1,2 @@
-# tuit
+# Tuit
 Let's Get Tuit
