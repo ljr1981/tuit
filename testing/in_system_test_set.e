@@ -12,9 +12,9 @@ feature -- Test routines
 	in_system
 			-- New test routine
 		note
-			testing:  "covers/{APPLICATION}.make", "execution/isolated", "execution/serial"
+			testing:  "covers/{ANY}.default_create", "execution/isolated", "execution/serial"
 		do
-			assert ("not_implemented", False)
+			-- in-system.
 		end
 
 end

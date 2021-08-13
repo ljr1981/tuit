@@ -1,0 +1,9 @@
+08/13/2021 12:51:59.340 AM - INFO  - capture_once start: 08/12/2021 8:51:59.339 PM
+08/13/2021 12:51:59.656 AM - INFO  - set_root s=D:\Users\LJR19\Documents\GitHub\tuit
+08/13/2021 12:52:00.700 AM - INFO  - all_subdirectories.count=130
+08/13/2021 12:52:00.764 AM - INFO  - access_times.count=21
+08/13/2021 12:52:00.806 AM - INFO  - touch_count=0
+08/13/2021 12:52:00.848 AM - INFO  - ignore_count=21
+08/13/2021 12:52:00.925 AM - INFO  - http://localhost:9090//?post/01&touch=%7B%22$TYPE%22:%22RIA_PROJECT_TOUCH%22,%22last_error_result%22:null,%22timestamp%22:%7B%22$TYPE%22:%22DATE_TIME%22,%22time%22:%7B%22$TYPE%22:%22TIME%22,%22compact_time%22:1323835,%22fractional_second%22:0.6980000000000004%7D,%22date%22:%7B%22$TYPE%22:%22DATE%22,%22ordered_compact_date%22:132450316%7D,%22compact_time%22:0,%22ordered_compact_date%22:0,%22fractional_second%22:0%7D,%22project_path%22:%7B%22$TYPE%22:%22PATH%22,%22storage%22:%22D%5Cu0000:%5Cu0000%5C%5C%5Cu0000U%5Cu0000s%5Cu0000e%5Cu0000r%5Cu0000s%5Cu0000%5C%5C%5Cu0000L%5Cu0000J%5Cu0000R%5Cu00001%5Cu00009%5Cu0000%5C%5C%5Cu0000D%5Cu0000o%5Cu0000c%5Cu0000u%5Cu0000m%5Cu0000e%5Cu0000n%5Cu0000t%5Cu0000s%5Cu0000%5C%5C%5Cu0000G%5Cu0000i%5Cu0000t%5Cu0000H%5Cu0000u%5Cu0000b%5Cu0000%5C%5C%5Cu0000t%5Cu0000u%5Cu0000i%5Cu0000t%5Cu0000%22,%22internal_name%22:%22D:%5C%5CUsers%5C%5CLJR19%5C%5CDocuments%5C%5CGitHub%5C%5Ctuit%22,%22is_normalized%22:true%7D,%22last_hash_out%22:%22------------------------------------------------------------------------------------------------%22,%22code_files%22:%22%22,%22bdd_code_files%22:%22%22,%22is_not_wait_for_exit%22:false,%22last_error%22:0,%22touch_count%22:0%7D
+08/13/2021 12:52:00.964 AM - INFO  - capture_once end: 08/12/2021 8:52:00.964 PM
+08/13/2021 12:52:00.989 AM - INFO  - capture_once seconds: 1
