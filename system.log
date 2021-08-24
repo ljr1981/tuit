@@ -1,0 +1,5 @@
+08/24/2021 10:40:14.070 AM - ERROR - precon_args
+generating_type={TU_SOS_TEST_SET}
+feature=my_feature_with_args
+args=[1776,true,"blah String",[2001,false,null,"c"]]
+object={"$TYPE":"TU_SOS_TEST_SET","file_system":{"$TYPE":"EQA_FILE_SYSTEM","asserter":{"$TYPE":"EQA_ASSERTIONS","last_assertion_failed":false}},"environment":{"$TYPE":"EQA_ENVIRONMENT"},"internal_asserter":{"$TYPE":"EQA_ASSERTIONS","last_assertion_failed":false},"silent":true,"last_assertion_failed":false,"has_failed":false}
