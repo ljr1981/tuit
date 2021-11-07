@@ -1,20 +1,5 @@
-08/24/2021 10:40:14.070 AM - ERROR - precon_args
+11/07/2021 12:40:49.822 PM - ERROR - stings_equal
 generating_type={TU_SOS_TEST_SET}
-feature=my_feature_with_args
-args=[1776,true,"blah String",[2001,false,null,"c"]]
-object={"$TYPE":"TU_SOS_TEST_SET","file_system":{"$TYPE":"EQA_FILE_SYSTEM","asserter":{"$TYPE":"EQA_ASSERTIONS","last_assertion_failed":false}},"environment":{"$TYPE":"EQA_ENVIRONMENT"},"internal_asserter":{"$TYPE":"EQA_ASSERTIONS","last_assertion_failed":false},"silent":true,"last_assertion_failed":false,"has_failed":false}
-11/06/2021 1:33:52.070 PM - ERROR - precon_args
-generating_type={TU_SOS_TEST_SET}
-feature=my_feature_with_args
-args=[1776,true,"blah String",[2001,false,null,"c"]]
-object={"$TYPE":"TU_SOS_TEST_SET","file_system":{"$TYPE":"EQA_FILE_SYSTEM","asserter":{"$TYPE":"EQA_ASSERTIONS","last_assertion_failed":false}},"environment":{"$TYPE":"EQA_ENVIRONMENT"},"internal_asserter":{"$TYPE":"EQA_ASSERTIONS","last_assertion_failed":false},"silent":true,"last_assertion_failed":false,"has_failed":false}
-11/06/2021 2:03:26.576 PM - ERROR - precon_args
-generating_type={TU_SOS_TEST_SET}
-feature=my_feature_with_args
-args=[1776,true,"blah String",[2001,false,null,"c"]]
-object={"$TYPE":"TU_SOS_TEST_SET","file_system":{"$TYPE":"EQA_FILE_SYSTEM","asserter":{"$TYPE":"EQA_ASSERTIONS","last_assertion_failed":false}},"environment":{"$TYPE":"EQA_ENVIRONMENT"},"internal_asserter":{"$TYPE":"EQA_ASSERTIONS","last_assertion_failed":false},"silent":true,"last_assertion_failed":false,"has_failed":false}
-11/07/2021 12:09:47.984 PM - ERROR - precon_args
-generating_type={TU_SOS_TEST_SET}
-feature=my_feature_with_args
-args=[1776,true,"blah String",[2001,false,null,"c"]]
+feature=strings_not_equal
+expected_vs_actual=["this_string","is_not_this_string"]
 object={"$TYPE":"TU_SOS_TEST_SET","file_system":{"$TYPE":"EQA_FILE_SYSTEM","asserter":{"$TYPE":"EQA_ASSERTIONS","last_assertion_failed":false}},"environment":{"$TYPE":"EQA_ENVIRONMENT"},"internal_asserter":{"$TYPE":"EQA_ASSERTIONS","last_assertion_failed":false},"silent":true,"last_assertion_failed":false,"has_failed":false}

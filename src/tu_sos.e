@@ -22,7 +22,7 @@ feature -- Settings
 
 feature -- SOS assertions
 
-	assert_sos (a_test_result: BOOLEAN; a_obj_ref: ANY; a_fail_msg: STRING; a_args: TUPLE): BOOLEAN
+	sos (a_test_result: BOOLEAN; a_obj_ref: ANY; a_fail_msg: STRING; a_args: TUPLE): BOOLEAN
 			-- SOS Assertion with `args'.
 		do
 			if silent and not a_test_result then
@@ -30,6 +30,26 @@ feature -- SOS assertions
 				Result := silent
 			else
 				Result := a_test_result or else not a_test_result
+			end
+		end
+
+	sos_strings_equal (a_obj_ref: ANY; a_args: TUPLE): BOOLEAN
+			-- SOS Strings Equal Assertion with `args'.
+		require
+			has_expected_and_actual: a_args.count >= 2
+			has_as_strings_expected: attached {STRING} a_args [1]
+			has_as_strings_actual: attached {STRING} a_args [2]
+		local
+			l_result: BOOLEAN
+		do
+			check a_args.count >= 2 and then attached {STRING} a_args [1] as item_expected and then attached {STRING} a_args [2] as item_actual then
+				l_result := item_expected.same_string (item_actual)
+			end
+			if silent and not l_result then
+				silent_fail ("stings_equal", a_obj_ref, "strings_not_equal", "expected_vs_actual", a_args)
+				Result := silent
+			else
+				Result := l_result
 			end
 		end
 

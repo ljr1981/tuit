@@ -17,11 +17,7 @@
 		<library name="base" location="$ISE_LIBRARY\library\base\base.ecf"/>
 		<library name="diff" location="$ISE_LIBRARY\library\diff\diff.ecf"/>
 		<library name="logging" location="$ISE_LIBRARY\library\runtime\logging\logging.ecf"/>
-<<<<<<< HEAD
 		<library name="test_set_bridge" location="$GitHub\test_set_bridge\test_set_bridge.ecf"/>
-=======
-		<library name="test_set_bridge" location="..\test_set_bridge\test_set_bridge.ecf"/>
->>>>>>> df732918ebe41210a6f8c84a6f442be18d03b562
 		<cluster name="src" location=".\src\" recursive="true"/>
 	</target>
 	<target name="tuit_tests" extends="tuit">

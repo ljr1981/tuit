@@ -14,15 +14,26 @@ inherit
 
 feature -- Test routines
 
-	precondition_with_args_test
-			-- Test of `pre_args'
+	SOS_test
+			-- Test of `sos'
 		note
 			testing:
-				"covers/{TU_SOS}.precondition_with_args",
+				"covers/{TU_SOS}.sos",
 				"execution/isolated", "execution/serial"
 		do
 			set_silent
 			my_feature_with_args (1776, True, "blah String", <<2001, False, Void, 'c'>>)
+		end
+
+	SOS_strings_equal_test
+			-- Test of `sos_strings_equal'
+		note
+			testing:
+				"covers/{TU_SOS}.sos_strings_equal",
+				"execution/isolated", "execution/serial"
+		do
+			set_silent
+			check sos_strings_equal (Current, ["this_string","is_not_this_string"]) end
 		end
 
 feature {NONE} -- Support
@@ -30,7 +41,7 @@ feature {NONE} -- Support
 	my_feature_with_args (a: INTEGER; b: BOOLEAN; c: STRING; d: ARRAY [detachable ANY])
 			-- A command routine with four arguments.
 		require
-			always_fails: assert_sos (False, Current, "my_feature_with_args", ([a,b,c,d]))
+			always_fails: sos (False, Current, "my_feature_with_args", ([a,b,c,d]))
 		do
 			-- we want the require to fail Soft or Silent (SOS)!
 		end
@@ -38,7 +49,7 @@ feature {NONE} -- Support
 	my_feature_no_args
 			-- A command routine with no arguments.
 		require
-			test_precon_no_args: assert_sos (False, Current, "my_feature_1", [])
+			test_precon_no_args: sos (False, Current, "my_feature_1", [])
 		do
 			do_nothing
 		end
