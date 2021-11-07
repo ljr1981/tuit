@@ -30,15 +30,15 @@ feature {NONE} -- Support
 	my_feature_with_args (a: INTEGER; b: BOOLEAN; c: STRING; d: ARRAY [detachable ANY])
 			-- A command routine with four arguments.
 		require
-			always_fails: pre_args (False, Current, "my_feature_with_args", ([a,b,c,d]))
+			always_fails: assert_sos (False, Current, "my_feature_with_args", ([a,b,c,d]))
 		do
-			-- we want the require to fail soft or silent!
+			-- we want the require to fail Soft or Silent (SOS)!
 		end
 
 	my_feature_no_args
 			-- A command routine with no arguments.
 		require
-			test_precon_no_args: pre (False, Current, "my_feature_1")
+			test_precon_no_args: assert_sos (False, Current, "my_feature_1", [])
 		do
 			do_nothing
 		end
