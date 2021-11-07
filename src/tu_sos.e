@@ -20,6 +20,12 @@ feature -- Settings
 			silent := True
 		end
 
+	reset_silent
+			--
+		do
+			silent := False
+		end
+
 feature -- SOS assertions
 
 	sos (a_test_result: BOOLEAN; a_obj_ref: ANY; a_fail_msg: STRING; a_args: TUPLE): BOOLEAN
@@ -30,6 +36,31 @@ feature -- SOS assertions
 				Result := silent
 			else
 				Result := a_test_result or else not a_test_result
+			end
+		end
+
+	sos_string_starts_with (a_obj_ref: ANY; a_args: TUPLE): BOOLEAN
+			-- SOS String starts with other in `args'.
+		require
+			has_expected_and_actual: a_args.count >= 2
+			has_as_strings_expected: attached {STRING} a_args [1]
+			has_as_strings_actual: attached {STRING} a_args [2]
+		local
+			l_result: BOOLEAN
+		do
+			check
+				a_args.count >= 2 and then
+					attached {STRING} a_args [1] as item_expected and then
+					attached {STRING} a_args [2] as item_actual
+			then
+				l_result := item_expected.count >= item_actual.count and then
+							item_actual.same_string (item_expected.substring (1, item_actual.count))
+			end
+			if silent and not l_result then
+				silent_fail ("string_starts_with", a_obj_ref, "string_not_starts_with", "args", a_args)
+				Result := silent
+			else
+				Result := l_result
 			end
 		end
 

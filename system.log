@@ -1,5 +1,0 @@
-11/07/2021 12:40:49.822 PM - ERROR - stings_equal
-generating_type={TU_SOS_TEST_SET}
-feature=strings_not_equal
-expected_vs_actual=["this_string","is_not_this_string"]
-object={"$TYPE":"TU_SOS_TEST_SET","file_system":{"$TYPE":"EQA_FILE_SYSTEM","asserter":{"$TYPE":"EQA_ASSERTIONS","last_assertion_failed":false}},"environment":{"$TYPE":"EQA_ENVIRONMENT"},"internal_asserter":{"$TYPE":"EQA_ASSERTIONS","last_assertion_failed":false},"silent":true,"last_assertion_failed":false,"has_failed":false}

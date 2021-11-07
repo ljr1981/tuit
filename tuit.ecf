@@ -15,6 +15,7 @@
 		<setting name="dead_code_removal" value="feature"/>
 		<library name="any_extension" location="..\any_ext\any_extension.ecf"/>
 		<library name="base" location="$ISE_LIBRARY\library\base\base.ecf"/>
+		<library name="decimal" location="$ISE_LIBRARY\contrib\library\math\decimal\decimal\decimal.ecf"/>
 		<library name="diff" location="$ISE_LIBRARY\library\diff\diff.ecf"/>
 		<library name="logging" location="$ISE_LIBRARY\library\runtime\logging\logging.ecf"/>
 		<library name="test_set_bridge" location="$GitHub\test_set_bridge\test_set_bridge.ecf"/>

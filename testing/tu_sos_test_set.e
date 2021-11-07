@@ -34,7 +34,25 @@ feature -- Test routines
 		do
 			set_silent
 			check sos_strings_equal (Current, ["this_string","is_not_this_string"]) end
+			reset_silent
+			check sos_strings_equal (Current, ["this_string", "this_string"]) end
 		end
+
+	SOS_string_starts_with_test
+			--
+		note
+			testing:
+				"covers/{TU_SOS}.sos_string_starts_with",
+				"execution/isolated", "execution/serial"
+		do
+			set_silent
+			check sos_string_starts_with (Current, ["starts_with_this", "starts_with"]) end
+			check sos_string_starts_with (Current, ["starts_with_this", "does_not"]) end
+
+			reset_silent
+			check sos_string_starts_with (Current, ["starts_with_this", "starts_with"]) end
+		end
+
 
 feature {NONE} -- Support
 
