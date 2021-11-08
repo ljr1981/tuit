@@ -20,6 +20,24 @@ args=["starts_with_this","does_not"]
 object={"$TYPE":"TU_SOS_TEST_SET","file_system":{"$TYPE":"EQA_FILE_SYSTEM","asserter":{"$TYPE":"EQA_ASSERTIONS","last_assertion_failed":false}},"environment":{"$TYPE":"EQA_ENVIRONMENT"},"internal_asserter":{"$TYPE":"EQA_ASSERTIONS","last_assertion_failed":false},"default_path":{"$TYPE":"PATH","storage":".\u0000\\\u0000t\u0000e\u0000s\u0000t\u0000i\u0000n\u0000g\u0000\\\u0000t\u0000e\u0000s\u0000t\u0000_\u0000o\u0000u\u0000t\u0000p\u0000u\u0000t\u0000\\\u0000s\u0000o\u0000s\u0000.\u0000l\u0000o\u0000g\u0000","internal_name":".\\testing\\test_output\\sos.log","is_normalized":true},"silent":true,"last_assertion_failed":false,"has_failed":false}
 ```
 
+The generating test code is:
+```
+SOS_string_starts_with_test
+		--
+	note
+		testing:
+			"covers/{TU_SOS}.sos_string_starts_with",
+			"execution/isolated", "execution/serial"
+	do
+		set_silent
+		check sos_string_starts_with (Current, ["starts_with_this", "starts_with"]) end
+		check sos_string_starts_with (Current, ["starts_with_this", "does_not"]) end
+
+		reset_silent
+		check sos_string_starts_with (Current, ["starts_with_this", "starts_with"]) end
+	end
+```
+
 ### Timestamp
 The first line of the log entry is a time stamp title line. It is a typical Logging library entry and includes the type of log entry as well as a title that you control.
 
