@@ -124,9 +124,10 @@ Perhaps someday that Eiffel compiler will now (for itself) how to generate SOS c
 
 ## Brainstorming
 Where to go with Tuit in the future? Here are some brainstorming and think-out-loud matters.
-```
-	-- Potential sos-features ...
 
+### Potential SOS Features
+These actually do not need to be related specifically to SOS, but the way I am coding them, they are—that is—the coding of each feature checks the state of the `silent` feature to see if silently failing is what is needed or wanted. Otherwise, each of these BOOLEAN functions can operate independently of SOS.
+```
 	-- sos_string_ends_with
 	-- sos_string_contains
 	-- sos_string_has_n_instances
