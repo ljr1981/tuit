@@ -1,6 +1,6 @@
-11/07/2021 7:22:03.341 PM - NOTIC - TU_SOS_TEST_SET.on_prepare
-11/07/2021 7:22:03.403 PM - ERROR - string_starts_with
+11/08/2021 3:02:03.889 PM - NOTIC - TU_SOS_TEST_SET.on_prepare
+11/08/2021 3:02:03.930 PM - ERROR - precon_args
 generating_type={TU_SOS_TEST_SET}
-feature=string_not_starts_with
-args=["starts_with_this","does_not"]
+feature=my_feature_with_args
+args=[1776,true,"blah String",[2001,false,null,"c"]]
 object={"$TYPE":"TU_SOS_TEST_SET","file_system":{"$TYPE":"EQA_FILE_SYSTEM","asserter":{"$TYPE":"EQA_ASSERTIONS","last_assertion_failed":false}},"environment":{"$TYPE":"EQA_ENVIRONMENT"},"internal_asserter":{"$TYPE":"EQA_ASSERTIONS","last_assertion_failed":false},"default_path":{"$TYPE":"PATH","storage":".\u0000\\\u0000t\u0000e\u0000s\u0000t\u0000i\u0000n\u0000g\u0000\\\u0000t\u0000e\u0000s\u0000t\u0000_\u0000o\u0000u\u0000t\u0000p\u0000u\u0000t\u0000\\\u0000s\u0000o\u0000s\u0000.\u0000l\u0000o\u0000g\u0000","internal_name":".\\testing\\test_output\\sos.log","is_normalized":true},"silent":true,"last_assertion_failed":false,"has_failed":false}

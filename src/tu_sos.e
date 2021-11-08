@@ -90,13 +90,111 @@ feature -- SOS assertions
 	-- sos_string_contains
 	-- sos_string_has_n_instances
 
-	-- sos_a_b_equal
-	-- sos_a_less_than_b
-	-- sos_a_greater_than_b
-	-- sos_a_less_than_or_equal_to_b
-	-- sos_a_greater_than_or_equal_to_b
-	-- sos_a_in_range
-	-- sos_a_out_of_range
+	sos_a_b_equal (a, b: ANY; a_obj_ref: ANY; a_args: TUPLE): BOOLEAN
+			-- sos_a_b_equal
+		local
+			l_result: BOOLEAN
+		do
+			l_result := a.is_equal (b)
+			if silent and not l_result then
+				silent_fail ("sos_a_b_equal", a_obj_ref, "sos_a_b_not_equal", "args_and_a_and_b", a_args.plus ([a, b]))
+				Result := silent
+			else
+				Result := l_result
+			end
+		end
+
+	sos_a_less_than_b (a, b: ANY; a_obj_ref: ANY; a_args: TUPLE): BOOLEAN
+			-- sos_a_less_than_b
+		require
+			same_type: a.same_type (b)
+			comparable: attached {COMPARABLE} a and then attached {COMPARABLE} b
+		local
+			l_result: BOOLEAN
+		do
+			if attached {COMPARABLE} a as al_a and then attached {COMPARABLE} b as al_b then
+				l_result := al_a.is_less (al_b)
+				if silent and not l_result then
+					silent_fail ("sos_a_less_than_b", a_obj_ref, "sos_a_not_less_than_b", "args_and_a_and_b", a_args.plus ([a, b]))
+					Result := silent
+				else
+					Result := l_result
+				end
+			end
+		end
+
+	sos_a_greater_than_b (a, b: ANY; a_obj_ref: ANY; a_args: TUPLE): BOOLEAN
+			-- sos_a_greater_than_b
+		require
+			same_type: a.same_type (b)
+			comparable: attached {COMPARABLE} a and then attached {COMPARABLE} b
+		local
+			l_result: BOOLEAN
+		do
+			if attached {COMPARABLE} a as al_a and then attached {COMPARABLE} b as al_b then
+				l_result := al_a.is_greater (al_b)
+				if silent and not l_result then
+					silent_fail ("sos_a_greater_than_b", a_obj_ref, "sos_a_not_greater_than_b", "args_and_a_and_b", a_args.plus ([a, b]))
+					Result := silent
+				else
+					Result := l_result
+				end
+			end
+		end
+
+	sos_a_less_than_or_equal_to_b (a, b: ANY; a_obj_ref: ANY; a_args: TUPLE): BOOLEAN
+			-- sos_a_less_than_or_equal_to_b
+		require
+			same_type: a.same_type (b)
+			comparable: attached {COMPARABLE} a and then attached {COMPARABLE} b
+		local
+			l_result: BOOLEAN
+		do
+			if attached {COMPARABLE} a as al_a and then attached {COMPARABLE} b as al_b then
+				l_result := al_a.is_less_equal (al_b)
+				if silent and not l_result then
+					silent_fail ("sos_a_less_than_or_equal_to_b", a_obj_ref, "sos_a_not_less_than_or_equal_to_b", "args_and_a_and_b", a_args.plus ([a, b]))
+					Result := silent
+				else
+					Result := l_result
+				end
+			end
+		end
+
+	sos_a_greater_than_or_equal_to_b (a, b: ANY; a_obj_ref: ANY; a_args: TUPLE): BOOLEAN
+			-- sos_a_greater_than_or_equal_to_b
+		require
+			same_type: a.same_type (b)
+			comparable: attached {COMPARABLE} a and then attached {COMPARABLE} b
+		local
+			l_result: BOOLEAN
+		do
+			if attached {COMPARABLE} a as al_a and then attached {COMPARABLE} b as al_b then
+				l_result := al_a.is_greater_equal (al_b)
+				if silent and not l_result then
+					silent_fail ("sos_a_greater_than_or_equal_to_b", a_obj_ref, "sos_a_not_greater_than_or_equal_to_b", "args_and_a_and_b", a_args.plus ([a, b]))
+					Result := silent
+				else
+					Result := l_result
+				end
+			end
+		end
+
+	-- sos_a_in_range_inclusive
+	-- sos_a_in_range_inclusive_left
+	-- sos_a_in_range_inclusive_right
+
+	-- sos_a_in_range_exclusive
+	-- sos_a_in_range_exclusive_left
+	-- sos_a_in_range_exclusive_right
+
+	-- sos_a_out_of_range_inclusive
+	-- sos_a_out_of_range_inclusive_left
+	-- sos_a_out_of_range_inclusive_right
+
+	-- sos_a_out_of_range_exclusive
+	-- sos_a_out_of_range_exclusive_left
+	-- sos_a_out_of_range_exclusive_right
 
 	-- sos_a_in_set
 	-- sos_set_has_a
