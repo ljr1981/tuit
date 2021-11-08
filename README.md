@@ -118,4 +118,6 @@ Finally, we have the Current object serialized to JSON. The purpose of this JSON
 The log messages are only generated on failure. Contracts that pass do not generate a log entry.
 
 ## PS
-In order to have the SOS contracts in your production code, you will need to compile with some level of contracts turned on. This means that whatever code the Eiffel compiler generates will be present and whatever performance hit the code takes because of that will also be present. This is why having multiple versions of an executable is preferred. Perhaps someday that Eiffel compiler will now (for itself) how to generate SOS contracts in a very lean and efficient way such that contracts can be left on even in the most intense production environments.
+In order to have the SOS contracts in your production code, you will need to compile with some level of contracts turned on. The resulting executable will have whatever code the Eiffel compiler generates present along with whatever performance hit that code incurs. At the moment, this is why having multiple versions of an executable is preferred. 
+
+Perhaps someday that Eiffel compiler will now (for itself) how to generate SOS contracts in a very lean and efficient way such that contracts can be left on even in the most intense production environments.
