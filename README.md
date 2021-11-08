@@ -137,8 +137,22 @@ These actually do not need to be related specifically to SOS, but the way I am c
 	-- sos_a_greater_than_b
 	-- sos_a_less_than_or_equal_to_b
 	-- sos_a_greater_than_or_equal_to_b
-	-- sos_a_in_range
-	-- sos_a_out_of_range
+
+	-- sos_a_in_range_inclusive
+	-- sos_a_in_range_inclusive_left
+	-- sos_a_in_range_inclusive_right
+
+	-- sos_a_in_range_exclusive
+	-- sos_a_in_range_exclusive_left
+	-- sos_a_in_range_exclusive_right
+
+	-- sos_a_out_of_range_inclusive
+	-- sos_a_out_of_range_inclusive_left
+	-- sos_a_out_of_range_inclusive_right
+
+	-- sos_a_out_of_range_exclusive
+	-- sos_a_out_of_range_exclusive_left
+	-- sos_a_out_of_range_exclusive_right
 
 	-- sos_a_in_set
 	-- sos_set_has_a
