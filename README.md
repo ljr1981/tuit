@@ -157,3 +157,4 @@ These actually do not need to be related specifically to SOS, but the way I am c
 	-- sos_a_in_set
 	-- sos_set_has_a
 ```
+Note that the a-b equality features are presently implemented, but not yet tested.
