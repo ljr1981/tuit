@@ -85,9 +85,7 @@ The third line is the feature name. You are responsible for this inforation. Thi
 ```
 args=["starts_with_this","does_not"]
 ```
-The fourth line of the log entry will generally be the arguments line. This consists of a key-value pair, such as: 
-
-args=["starts_with_this","does_not"]
+The fourth line of the log entry will generally be the arguments line. This consists of a key-value pair (e.g. args:TUPLE).
 
 The right-hand side is a TUPLE where you can put whatever variables you like and only your creatively is your limit.
 
