@@ -10,6 +10,16 @@ The SOS fail will not stop your program, but will log the failure. At the moment
 ## JSON Capture
 What you will not get is a call-stack. You will get much more!
 
+## Example
+Here is an example of what is presently being generated in test code in the Tuit library itself:
+```
+11/07/2021 7:22:03.403 PM - ERROR - string_starts_with
+generating_type={TU_SOS_TEST_SET}
+feature=string_not_starts_with
+args=["starts_with_this","does_not"]
+object={"$TYPE":"TU_SOS_TEST_SET","file_system":{"$TYPE":"EQA_FILE_SYSTEM","asserter":{"$TYPE":"EQA_ASSERTIONS","last_assertion_failed":false}},"environment":{"$TYPE":"EQA_ENVIRONMENT"},"internal_asserter":{"$TYPE":"EQA_ASSERTIONS","last_assertion_failed":false},"default_path":{"$TYPE":"PATH","storage":".\u0000\\\u0000t\u0000e\u0000s\u0000t\u0000i\u0000n\u0000g\u0000\\\u0000t\u0000e\u0000s\u0000t\u0000_\u0000o\u0000u\u0000t\u0000p\u0000u\u0000t\u0000\\\u0000s\u0000o\u0000s\u0000.\u0000l\u0000o\u0000g\u0000","internal_name":".\\testing\\test_output\\sos.log","is_normalized":true},"silent":true,"last_assertion_failed":false,"has_failed":false}
+```
+
 ### Timestamp
 The first line of the log entry is a time stamp title line. It is a typical Logging library entry and includes the type of log entry as well as a title that you control.
 
