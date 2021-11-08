@@ -6,10 +6,34 @@ class
 
 inherit
 	TEST_SET_SUPPORT
+		redefine
+			on_prepare
+		end
 
 	TU_SOS
 		undefine
 			default_create
+		end
+
+feature {NONE} -- Initialization
+
+	testing_output: STRING
+		once
+			Result := (create {OPERATING_ENVIRONMENT}).current_directory_name_representation + "\testing\test_output"
+		end
+
+	testing_output_dir: DIRECTORY
+		once
+			create Result.make_with_path (create {PATH}.make_from_string (testing_output))
+		end
+
+	on_prepare
+			--<Precursor>
+		do
+			create default_path.make_from_string (testing_output + "\sos.log")
+			testing_output_dir.delete_content
+			logger.register_log_writer (writer)
+			logger.write_notice ("TU_SOS_TEST_SET.on_prepare")
 		end
 
 feature -- Test routines

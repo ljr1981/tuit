@@ -118,14 +118,19 @@ feature {NONE} -- Implementation
 			-- Basic Logging Facility
 		once
 			create Result.make
-			Result.enable_default_file_log
 		end
 
-	writer: LOG_WRITER_FILE
+	writer: LOG_ROLLING_WRITER_FILE
 			-- Basic Log Writer
 		once
-			create Result
+			create Result.make_at_location (default_path)
 			Result.enable_debug_log_level
+		end
+
+	default_path: PATH
+			-- The `default_path' (Current) unless otherwise set.
+		attribute
+			create Result.make_current
 		end
 
 end
