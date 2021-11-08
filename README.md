@@ -121,3 +121,24 @@ The log messages are only generated on failure. Contracts that pass do not gener
 In order to have the SOS contracts in your production code, you will need to compile with some level of contracts turned on. The resulting executable will have whatever code the Eiffel compiler generates present along with whatever performance hit that code incurs. At the moment, this is why having multiple versions of an executable is preferred. 
 
 Perhaps someday that Eiffel compiler will now (for itself) how to generate SOS contracts in a very lean and efficient way such that contracts can be left on even in the most intense production environments.
+
+## Brainstorming
+Where to go with Tuit in the future? Here are some brainstorming and think-out-loud matters.
+```
+	-- Potential sos-features ...
+
+	-- sos_string_ends_with
+	-- sos_string_contains
+	-- sos_string_has_n_instances
+
+	-- sos_a_b_equal
+	-- sos_a_less_than_b
+	-- sos_a_greater_than_b
+	-- sos_a_less_than_or_equal_to_b
+	-- sos_a_greater_than_or_equal_to_b
+	-- sos_a_in_range
+	-- sos_a_out_of_range
+
+	-- sos_a_in_set
+	-- sos_set_has_a
+```
