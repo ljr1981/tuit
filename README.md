@@ -43,6 +43,26 @@ The `reset_silent` turns off silent failing for any SOS feature call.
 
 Notice the references to `Current`. They are a reference to the test code object, which is why it appears in the JSON in the example log message above. You do not have to pass `Current` to the sos-feature, but can pass whatever object you like and want to appear in a failure log message. This is handy for check, class-invariant, and loop-invariant contracts where `Current` may not be of primary interest.
 
+For reference, here is the test class header:
+```
+note
+	testing: "type/manual"
+
+class
+	TU_SOS_TEST_SET
+
+inherit
+	TEST_SET_SUPPORT
+		redefine
+			on_prepare
+		end
+
+	TU_SOS
+		undefine
+			default_create
+		end
+```
+
 ### Timestamp
 The first line of the log entry is a time stamp title line. It is a typical Logging library entry and includes the type of log entry as well as a title that you control.
 
