@@ -84,6 +84,24 @@ feature -- SOS assertions
 			end
 		end
 
+	-- Potential sos-features ...
+
+	-- sos_string_ends_with
+	-- sos_string_contains
+	-- sos_string_has_n_instances
+
+	-- sos_a_b_equal
+	-- sos_a_less_than_b
+	-- sos_a_greater_than_b
+	-- sos_a_less_than_or_equal_to_b
+	-- sos_a_greater_than_or_equal_to_b
+	-- sos_a_in_range
+	-- sos_a_out_of_range
+
+	-- sos_a_in_set
+	-- sos_set_has_a
+
+
 feature {NONE} -- Implemenation: Basic Ops
 
 	silent_fail (a_msg: STRING; a_obj_ref: ANY; a_fail_message, a_type: STRING; a_args: detachable TUPLE)
