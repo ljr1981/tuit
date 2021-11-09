@@ -30,6 +30,8 @@ feature -- SOS assertions
 
 	sos (a_test_result: BOOLEAN; a_obj_ref: ANY; a_fail_msg: STRING; a_args: TUPLE): BOOLEAN
 			-- SOS Assertion with `args'.
+		require
+			has_msg: not a_fail_msg.is_empty
 		do
 			if silent and not a_test_result then
 				silent_fail ("precon_args", a_obj_ref, a_fail_msg, "args", a_args)
@@ -37,24 +39,29 @@ feature -- SOS assertions
 			else
 				Result := a_test_result or else not a_test_result
 			end
+		ensure
+			sos_fail: silent and not a_test_result implies (Result = True)
+			no_sos: not silent implies (Result or else not Result)
 		end
 
 	sos_string_starts_with (a_obj_ref: ANY; a_args: TUPLE): BOOLEAN
 			-- SOS String starts with other in `args'.
 		require
-			has_expected_and_actual: a_args.count >= 2
-			has_as_strings_expected: attached {STRING} a_args [1]
-			has_as_strings_actual: attached {STRING} a_args [2]
+			has_target_and_starts_with: a_args.count >= 2
+			has_test_string: attached {STRING} a_args [1]
+			has_starts_with_string: attached {STRING} a_args [2]
 		local
 			l_result: BOOLEAN
 		do
 			check
 				a_args.count >= 2 and then
-					attached {STRING} a_args [1] as item_expected and then
-					attached {STRING} a_args [2] as item_actual
+					attached {STRING} a_args [1] as al_test_string and then
+					attached {STRING} a_args [2] as al_starts_with
 			then
-				l_result := item_expected.count >= item_actual.count and then
-							item_actual.same_string (item_expected.substring (1, item_actual.count))
+				l_result := (al_test_string.count >= al_starts_with.count and then
+								al_starts_with.same_string (al_test_string.substring (1, al_starts_with.count))) or else
+							(al_starts_with.count >= al_test_string.count and then
+								al_test_string.same_string (al_starts_with.substring (1, al_test_string.count)))
 			end
 			if silent and not l_result then
 				silent_fail ("string_starts_with", a_obj_ref, "string_not_starts_with", "args", a_args)

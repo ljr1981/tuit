@@ -70,11 +70,13 @@ feature -- Test routines
 				"execution/isolated", "execution/serial"
 		do
 			set_silent
-			check sos_string_starts_with (Current, ["starts_with_this", "starts_with"]) end
-			check sos_string_starts_with (Current, ["starts_with_this", "does_not"]) end
+			assert_booleans_equal ("starts_with_1", True, sos_string_starts_with (Current, ["starts_with_this", "starts_with"]))
+			assert_booleans_equal ("starts_with_2", True, sos_string_starts_with (Current, ["starts_with_this", "does_not"]))
 
 			reset_silent
-			check sos_string_starts_with (Current, ["starts_with_this", "starts_with"]) end
+			assert_booleans_equal ("starts_with_3", True, sos_string_starts_with (Current, ["starts_with_this", "starts_with"]))
+			assert_booleans_equal ("starts_with_4", True, sos_string_starts_with (Current, ["starts_with", "starts_with"]))
+			assert_booleans_equal ("starts_with_5", True, sos_string_starts_with (Current, ["starts_with", "starts_with_more"]))
 		end
 
 
