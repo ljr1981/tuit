@@ -34,7 +34,7 @@ feature -- SOS assertions
 			has_msg: not a_fail_msg.is_empty
 		do
 			if silent and not a_test_result then
-				silent_fail ("precon_args", a_obj_ref, a_fail_msg, "args", a_args)
+				silent_fail ("not_sos", a_obj_ref, a_fail_msg, "args", a_args)
 				Result := silent
 			else
 				Result := a_test_result or else not a_test_result
@@ -64,7 +64,7 @@ feature -- SOS assertions
 								al_test_string.same_string (al_starts_with.substring (1, al_test_string.count)))
 			end
 			if silent and not l_result then
-				silent_fail ("string_starts_with", a_obj_ref, "string_not_starts_with", "args", a_args)
+				silent_fail ("sos_string_not_starts_with", a_obj_ref, "sos_string_starts_with", "args", a_args)
 				Result := silent
 			else
 				Result := l_result
@@ -74,17 +74,19 @@ feature -- SOS assertions
 	sos_strings_equal (a_obj_ref: ANY; a_args: TUPLE): BOOLEAN
 			-- SOS Strings Equal Assertion with `args'.
 		require
-			has_expected_and_actual: a_args.count >= 2
-			has_as_strings_expected: attached {STRING} a_args [1]
-			has_as_strings_actual: attached {STRING} a_args [2]
+			has_target_and_test: a_args.count >= 2
+			has_target: attached {STRING} a_args [1]
+			has_test: attached {STRING} a_args [2]
 		local
 			l_result: BOOLEAN
 		do
-			check a_args.count >= 2 and then attached {STRING} a_args [1] as item_expected and then attached {STRING} a_args [2] as item_actual then
-				l_result := item_expected.same_string (item_actual)
+			check a_args.count >= 2 and then
+				attached {STRING} a_args [1] as al_target and then
+				attached {STRING} a_args [2] as al_test then
+				l_result := al_test.same_string (al_target)
 			end
 			if silent and not l_result then
-				silent_fail ("stings_equal", a_obj_ref, "strings_not_equal", "expected_vs_actual", a_args)
+				silent_fail ("sos_strings_not_equal", a_obj_ref, "sos_strings_equal", "target_and_test", a_args)
 				Result := silent
 			else
 				Result := l_result
@@ -93,7 +95,32 @@ feature -- SOS assertions
 
 	-- Potential sos-features ...
 
-	-- sos_string_ends_with
+	sos_string_ends_with (a_obj_ref: ANY; a_args: TUPLE): BOOLEAN
+			-- sos_string_ends_with
+		require
+			has_target_and_test: a_args.count >= 2
+			has_target: attached {STRING} a_args [1]
+			has_test: attached {STRING} a_args [2]
+		local
+			l_result: BOOLEAN
+		do
+			check a_args.count >= 2 and then
+					attached {STRING} a_args [1] as al_target and then
+					attached {STRING} a_args [2] as al_test and then
+					attached al_target.count as al_end and then
+					attached (al_end - al_test.count + 1) as al_start
+			then
+				l_result := (al_target.count >= al_test.count and then
+								al_target.substring (al_start, al_end).same_string (al_test))
+			end
+			if silent and not l_result then
+				silent_fail ("sos_not_string_ends_with", a_obj_ref, "sos_string_ends_with", "target_and_test", a_args)
+				Result := silent
+			else
+				Result := l_result
+			end
+		end
+
 	-- sos_string_contains
 	-- sos_string_has_n_instances
 

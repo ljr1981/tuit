@@ -47,6 +47,7 @@ feature -- Test routines
 		do
 			set_silent
 			my_feature_with_args (1776, True, "blah String", <<2001, False, Void, 'c'>>)
+			my_feature_no_args
 		end
 
 	SOS_strings_equal_test
@@ -60,6 +61,23 @@ feature -- Test routines
 			check sos_strings_equal (Current, ["this_string","is_not_this_string"]) end
 			reset_silent
 			check sos_strings_equal (Current, ["this_string", "this_string"]) end
+		end
+
+	SOS_string_ends_with_test
+			--
+		note
+			testing:
+				"covers/{TU_SOS}.sos_string_ends_with",
+				"execution/isolated", "execution/serial"
+		do
+			set_silent
+			assert_booleans_equal ("ends_with_1", True, sos_string_ends_with (Current, ["string ends with", "ends with"]))
+			assert_booleans_equal ("ends_with_2", True, sos_string_ends_with (Current, ["string ends with", "not ends with"]))
+
+			reset_silent
+			assert_booleans_equal ("ends_with_3", True, sos_string_ends_with (Current, ["string ends with", "ends with"]))
+			assert_booleans_equal ("ends_with_4", False, sos_string_ends_with (Current, ["string ends with", "not ends with"]))
+
 		end
 
 	SOS_string_starts_with_test
@@ -79,7 +97,6 @@ feature -- Test routines
 			assert_booleans_equal ("starts_with_5", True, sos_string_starts_with (Current, ["starts_with", "starts_with_more"]))
 		end
 
-
 feature {NONE} -- Support
 
 	my_feature_with_args (a: INTEGER; b: BOOLEAN; c: STRING; d: ARRAY [detachable ANY])
@@ -93,7 +110,7 @@ feature {NONE} -- Support
 	my_feature_no_args
 			-- A command routine with no arguments.
 		require
-			test_precon_no_args: sos (False, Current, "my_feature_1", [])
+			test_precon_no_args: sos (False, Current, "my_feature_no_args", [])
 		do
 			do_nothing
 		end
