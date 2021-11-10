@@ -1,11 +1,6 @@
-11/10/2021 9:27:07.591 PM - NOTIC - TU_SOS_TEST_SET.on_prepare
-11/10/2021 9:27:07.634 PM - ERROR - not_sos
+11/10/2021 9:30:52.176 PM - NOTIC - TU_SOS_TEST_SET.on_prepare
+11/10/2021 9:30:52.236 PM - ERROR - sos_not_string_contains
 generating_type={TU_SOS_TEST_SET}
-feature=my_feature_with_args
-args=[1776,true,"blah String",[2001,false,null,"c"]]
-object={"$TYPE":"TU_SOS_TEST_SET","default_path":{"$TYPE":"PATH","storage":".\u0000\\\u0000t\u0000e\u0000s\u0000t\u0000i\u0000n\u0000g\u0000\\\u0000t\u0000e\u0000s\u0000t\u0000_\u0000o\u0000u\u0000t\u0000p\u0000u\u0000t\u0000\\\u0000s\u0000o\u0000s\u0000.\u0000l\u0000o\u0000g\u0000","internal_name":".\\testing\\test_output\\sos.log","is_normalized":true},"file_system":{"$TYPE":"EQA_FILE_SYSTEM","asserter":{"$TYPE":"EQA_ASSERTIONS","last_assertion_failed":false}},"environment":{"$TYPE":"EQA_ENVIRONMENT"},"internal_asserter":{"$TYPE":"EQA_ASSERTIONS","last_assertion_failed":false},"silent":true,"last_assertion_failed":false,"has_failed":false}
-11/10/2021 9:27:07.673 PM - ERROR - not_sos
-generating_type={TU_SOS_TEST_SET}
-feature=my_feature_no_args
-args=[]
+feature=sos_string_contains
+target_and_test=["string ends with","not ends with"]
 object={"$TYPE":"TU_SOS_TEST_SET","default_path":{"$TYPE":"PATH","storage":".\u0000\\\u0000t\u0000e\u0000s\u0000t\u0000i\u0000n\u0000g\u0000\\\u0000t\u0000e\u0000s\u0000t\u0000_\u0000o\u0000u\u0000t\u0000p\u0000u\u0000t\u0000\\\u0000s\u0000o\u0000s\u0000.\u0000l\u0000o\u0000g\u0000","internal_name":".\\testing\\test_output\\sos.log","is_normalized":true},"file_system":{"$TYPE":"EQA_FILE_SYSTEM","asserter":{"$TYPE":"EQA_ASSERTIONS","last_assertion_failed":false}},"environment":{"$TYPE":"EQA_ENVIRONMENT"},"internal_asserter":{"$TYPE":"EQA_ASSERTIONS","last_assertion_failed":false},"silent":true,"last_assertion_failed":false,"has_failed":false}

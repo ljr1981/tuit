@@ -64,7 +64,7 @@ feature -- Test routines
 		end
 
 	SOS_string_ends_with_test
-			--
+			-- SOS_string_ends_with_test
 		note
 			testing:
 				"covers/{TU_SOS}.sos_string_ends_with",
@@ -80,8 +80,25 @@ feature -- Test routines
 
 		end
 
+	SOS_string_contains_test
+			-- SOS_string_contains_test
+		note
+			testing:
+				"covers/{TU_SOS}.SOS_string_contains",
+				"execution/isolated", "execution/serial"
+		do
+			set_silent
+			assert_booleans_equal ("ends_with_1", True, SOS_string_contains (Current, ["string ends with", "ends with"]))
+			assert_booleans_equal ("ends_with_2", True, SOS_string_contains (Current, ["string ends with", "not ends with"]))
+
+			reset_silent
+			assert_booleans_equal ("ends_with_3", True, SOS_string_contains (Current, ["string ends with", "ends with"]))
+			assert_booleans_equal ("ends_with_4", False, SOS_string_contains (Current, ["string ends with", "not ends with"]))
+
+		end
+
 	SOS_string_starts_with_test
-			--
+			-- SOS_string_starts_with_test
 		note
 			testing:
 				"covers/{TU_SOS}.sos_string_starts_with",

@@ -121,7 +121,31 @@ feature -- SOS assertions
 			end
 		end
 
-	-- sos_string_contains
+	sos_string_contains (a_obj_ref: ANY; a_args: TUPLE): BOOLEAN
+			-- sos_string_contains
+		require
+			has_target_and_test: a_args.count >= 2
+			has_target: attached {STRING} a_args [1]
+			has_test: attached {STRING} a_args [2]
+		local
+			l_result: BOOLEAN
+		do
+			check a_args.count >= 2 and then
+					attached {STRING} a_args [1] as al_target and then
+					attached {STRING} a_args [2] as al_test and then
+					attached al_target.count as al_end and then
+					attached (al_end - al_test.count + 1) as al_start
+			then
+				l_result := al_target.has_substring (al_test)
+			end
+			if silent and not l_result then
+				silent_fail ("sos_not_string_contains", a_obj_ref, "sos_string_contains", "target_and_test", a_args)
+				Result := silent
+			else
+				Result := l_result
+			end
+		end
+
 	-- sos_string_has_n_instances
 
 	sos_a_b_equal (a, b: ANY; a_obj_ref: ANY; a_args: TUPLE): BOOLEAN
