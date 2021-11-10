@@ -28,7 +28,7 @@ feature -- Settings
 
 feature -- SOS assertions
 
-	sos (a_test_result: BOOLEAN; a_obj_ref: ANY; a_fail_msg: STRING; a_args: TUPLE): BOOLEAN
+	sos_assert (a_test_result: BOOLEAN; a_obj_ref: ANY; a_fail_msg: STRING; a_args: TUPLE): BOOLEAN
 			-- SOS Assertion with `args'.
 		require
 			has_msg: not a_fail_msg.is_empty

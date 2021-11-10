@@ -102,7 +102,7 @@ feature {NONE} -- Support
 	my_feature_with_args (a: INTEGER; b: BOOLEAN; c: STRING; d: ARRAY [detachable ANY])
 			-- A command routine with four arguments.
 		require
-			always_fails: sos (False, Current, "my_feature_with_args", ([a,b,c,d]))
+			always_fails: sos_assert (False, Current, "my_feature_with_args", ([a,b,c,d]))
 		do
 			-- we want the require to fail Soft or Silent (SOS)!
 		end
@@ -110,7 +110,7 @@ feature {NONE} -- Support
 	my_feature_no_args
 			-- A command routine with no arguments.
 		require
-			test_precon_no_args: sos (False, Current, "my_feature_no_args", [])
+			test_precon_no_args: sos_assert (False, Current, "my_feature_no_args", [])
 		do
 			do_nothing
 		end
