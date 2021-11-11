@@ -230,7 +230,7 @@ feature -- SOS assertions
 			if attached {COMPARABLE} a as al_a and then attached {COMPARABLE} b as al_b then
 				l_result := al_a.is_greater_equal (al_b)
 				if silent and not l_result then
-					silent_fail ("sos_a_greater_than_or_equal_to_b", a_obj_ref, "sos_a_not_greater_than_or_equal_to_b", "args_and_a_and_b", a_args.plus ([a, b]))
+					silent_fail ("sos_a_not_greater_than_or_equal_to_b", a_obj_ref, "sos_a_greater_than_or_equal_to_b", "args_and_a_and_b", a_args.plus ([a, b]))
 					Result := silent
 				else
 					Result := l_result
@@ -238,13 +238,113 @@ feature -- SOS assertions
 			end
 		end
 
-	-- sos_a_in_range_inclusive
-	-- sos_a_in_range_inclusive_left
-	-- sos_a_in_range_inclusive_right
+	sos_a_in_range_inclusive (a, a_lower, a_upper: ANY; a_obj_ref: ANY; a_args: TUPLE): BOOLEAN
+			-- sos_a_in_range_inclusive
+		require
+			comparable_a: attached {COMPARABLE} a
+			comparable_lower: attached {COMPARABLE} a_lower
+			comparable_upper: attached {COMPARABLE} a_upper
+			same_types: attached {like a} a_lower and then attached {like a} a_upper
+		local
+			l_result: BOOLEAN
+		do
+			if attached {COMPARABLE} a as al_a and then
+				attached {COMPARABLE} a_lower as al_lower and then
+				attached {COMPARABLE} a_upper as al_upper and then
+				attached {like a} al_lower and then
+				attached {like a} al_upper
+			then
+				l_result := al_a.is_greater_equal (al_lower) and then
+							al_a.is_less_equal (al_upper)
+				if silent and not l_result then
+					silent_fail ("sos_not_a_in_range_inclusive", a_obj_ref, "sos_a_in_range_inclusive", "a_lower_upper", a_args.plus ([a, a_lower, a_upper]))
+					Result := silent
+				else
+					Result := l_result
+				end
+			end
+		end
 
-	-- sos_a_in_range_exclusive
-	-- sos_a_in_range_exclusive_left
-	-- sos_a_in_range_exclusive_right
+	sos_a_in_range_inclusive_left (a, a_lower, a_upper: ANY; a_obj_ref: ANY; a_args: TUPLE): BOOLEAN
+			-- sos_a_in_range_inclusive_left
+		require
+			comparable_a: attached {COMPARABLE} a
+			comparable_lower: attached {COMPARABLE} a_lower
+			comparable_upper: attached {COMPARABLE} a_upper
+			same_types: attached {like a} a_lower and then attached {like a} a_upper
+		local
+			l_result: BOOLEAN
+		do
+			if attached {COMPARABLE} a as al_a and then
+				attached {COMPARABLE} a_lower as al_lower and then
+				attached {COMPARABLE} a_upper as al_upper and then
+				attached {like a} al_lower and then
+				attached {like a} al_upper
+			then
+				l_result := al_a.is_greater_equal (al_lower) and then
+							al_a.is_less (al_upper)
+				if silent and not l_result then
+					silent_fail ("sos_not_a_in_range_inclusive_left", a_obj_ref, "sos_a_in_range_inclusive_left", "args_and_a_and_b", a_args.plus ([a, a_lower, a_upper]))
+					Result := silent
+				else
+					Result := l_result
+				end
+			end
+		end
+
+	sos_a_in_range_inclusive_right (a, a_lower, a_upper: ANY; a_obj_ref: ANY; a_args: TUPLE): BOOLEAN
+			-- sos_a_in_range_inclusive_right
+		require
+			comparable_a: attached {COMPARABLE} a
+			comparable_lower: attached {COMPARABLE} a_lower
+			comparable_upper: attached {COMPARABLE} a_upper
+			same_types: attached {like a} a_lower and then attached {like a} a_upper
+		local
+			l_result: BOOLEAN
+		do
+			if attached {COMPARABLE} a as al_a and then
+				attached {COMPARABLE} a_lower as al_lower and then
+				attached {COMPARABLE} a_upper as al_upper and then
+				attached {like a} al_lower and then
+				attached {like a} al_upper
+			then
+				l_result := al_a.is_greater (al_lower) and then
+							al_a.is_less_equal (al_upper)
+				if silent and not l_result then
+					silent_fail ("sos_not_a_in_range_inclusive_right", a_obj_ref, "sos_a_in_range_inclusive_right", "args_and_a_and_b", a_args.plus ([a, a_lower, a_upper]))
+					Result := silent
+				else
+					Result := l_result
+				end
+			end
+		end
+
+	sos_a_in_range_exclusive (a, a_lower, a_upper: ANY; a_obj_ref: ANY; a_args: TUPLE): BOOLEAN
+			-- sos_a_in_range_exclusive
+		require
+			comparable_a: attached {COMPARABLE} a
+			comparable_lower: attached {COMPARABLE} a_lower
+			comparable_upper: attached {COMPARABLE} a_upper
+			same_types: attached {like a} a_lower and then attached {like a} a_upper
+		local
+			l_result: BOOLEAN
+		do
+			if attached {COMPARABLE} a as al_a and then
+				attached {COMPARABLE} a_lower as al_lower and then
+				attached {COMPARABLE} a_upper as al_upper and then
+				attached {like a} al_lower and then
+				attached {like a} al_upper
+			then
+				l_result := al_a.is_greater (al_lower) and then
+							al_a.is_less (al_upper)
+				if silent and not l_result then
+					silent_fail ("sos_not_a_in_range_exclusive", a_obj_ref, "sos_a_in_range_exclusive", "args_and_a_and_b", a_args.plus ([a, a_lower, a_upper]))
+					Result := silent
+				else
+					Result := l_result
+				end
+			end
+		end
 
 	-- sos_a_out_of_range_inclusive
 	-- sos_a_out_of_range_inclusive_left

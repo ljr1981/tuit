@@ -114,6 +114,21 @@ feature -- Test routines
 			assert_booleans_equal ("starts_with_5", True, sos_string_starts_with (Current, ["starts_with", "starts_with_more"]))
 		end
 
+	SOS_a_in_range_inclusive_test
+			-- SOS_a_in_range_inclusive_test
+		note
+			testing:
+				"covers/{TU_SOS}.SOS_a_in_range_inclusive",
+				"execution/isolated", "execution/serial"
+		do
+			set_silent
+			assert_booleans_equal ("starts_with_integer_50", True, SOS_a_in_range_inclusive (50, 0, 100, Current, []))
+			assert_booleans_equal ("starts_with_integer_minus_50", True, SOS_a_in_range_inclusive (-50, 0, 100, Current, []))
+
+			reset_silent
+			assert_booleans_equal ("starts_with_integer_minus_50_not_silent", False, SOS_a_in_range_inclusive (-50, 0, 100, Current, []))
+		end
+
 feature {NONE} -- Support
 
 	my_feature_with_args (a: INTEGER; b: BOOLEAN; c: STRING; d: ARRAY [detachable ANY])
